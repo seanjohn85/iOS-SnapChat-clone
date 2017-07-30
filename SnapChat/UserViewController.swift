@@ -12,6 +12,9 @@ import FirebaseDatabase
 
 class UserViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    var imageUrl = ""
+    var descr = ""
+    
     var users : [User] = []
     
     var cellColors = ["F28044","F0A761","FEC362","F0BB4C","E3CB92","FEA375"]
@@ -53,7 +56,7 @@ class UserViewController: UIViewController, UITableViewDelegate, UITableViewData
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let u = users[indexPath.row]
         
-        let snap = ["from" : u.email, "description" : "", "imageUrl" : ""]
+        let snap = ["from" : u.email, "description" : descr, "imageUrl" : imageUrl]
         
         FIRDatabase.database().reference().child("users").child(u.uId).child("snaps").childByAutoId().setValue(snap)
     }

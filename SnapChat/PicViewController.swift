@@ -50,7 +50,7 @@ class PicViewController: UIViewController, UIImagePickerControllerDelegate, UINa
             }else{
                 print("URL \(metaData?.downloadURL())")
                 
-                self.performSegue(withIdentifier: "selectUser", sender: nil)
+                self.performSegue(withIdentifier: "selectUser", sender: metaData?.downloadURL()?.absoluteString)
             }
         }
         
@@ -58,7 +58,9 @@ class PicViewController: UIViewController, UIImagePickerControllerDelegate, UINa
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?){
     
-        
+        let nextVC = segue.destination as! UserViewController
+        nextVC.imageUrl = sender as! String
+        nextVC.descr = des.text!
         
     
     }

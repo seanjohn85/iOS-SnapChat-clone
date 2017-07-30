@@ -91,9 +91,9 @@
 			children = (
 				C94D09B91F2D53B2004EE8F1 /* ViewControllers */,
 				C94D09B81F2D539F004EE8F1 /* Models */,
+				C94D099F1F2CF979004EE8F1 /* Main.storyboard */,
 				C94D09AF1F2D337E004EE8F1 /* SnapChat.entitlements */,
 				C94D099B1F2CF979004EE8F1 /* AppDelegate.swift */,
-				C94D099F1F2CF979004EE8F1 /* Main.storyboard */,
 				C94D09A21F2CF979004EE8F1 /* Assets.xcassets */,
 				C94D09A41F2CF979004EE8F1 /* LaunchScreen.storyboard */,
 				C94D09A71F2CF979004EE8F1 /* Info.plist */,
