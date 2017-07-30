@@ -17,6 +17,8 @@
 		C94D09B31F2D3926004EE8F1 /* PicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94D09B21F2D3926004EE8F1 /* PicViewController.swift */; };
 		C94D09B51F2D4554004EE8F1 /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94D09B41F2D4554004EE8F1 /* UserViewController.swift */; };
 		C94D09B71F2D5346004EE8F1 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94D09B61F2D5346004EE8F1 /* User.swift */; };
+		C94D09BB1F2DE7D6004EE8F1 /* Snap.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94D09BA1F2DE7D6004EE8F1 /* Snap.swift */; };
+		C94D09BD1F2DF080004EE8F1 /* SnapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94D09BC1F2DF080004EE8F1 /* SnapViewController.swift */; };
 		D735B59581710BD7FBFF79C3 /* Pods_SnapChat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A02812B20C767A09B42700EC /* Pods_SnapChat.framework */; };
 /* End PBXBuildFile section */
 
@@ -37,6 +39,8 @@
 		C94D09B21F2D3926004EE8F1 /* PicViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PicViewController.swift; sourceTree = "<group>"; };
 		C94D09B41F2D4554004EE8F1 /* UserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
 		C94D09B61F2D5346004EE8F1 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = ../User.swift; sourceTree = "<group>"; };
+		C94D09BA1F2DE7D6004EE8F1 /* Snap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Snap.swift; sourceTree = "<group>"; };
+		C94D09BC1F2DF080004EE8F1 /* SnapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +110,7 @@
 			isa = PBXGroup;
 			children = (
 				C94D09B61F2D5346004EE8F1 /* User.swift */,
+				C94D09BA1F2DE7D6004EE8F1 /* Snap.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -117,6 +122,7 @@
 				C94D09B41F2D4554004EE8F1 /* UserViewController.swift */,
 				C94D09B21F2D3926004EE8F1 /* PicViewController.swift */,
 				C94D09B01F2D3462004EE8F1 /* SnapsViewController.swift */,
+				C94D09BC1F2DF080004EE8F1 /* SnapViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -255,6 +261,8 @@
 				C94D09B51F2D4554004EE8F1 /* UserViewController.swift in Sources */,
 				C94D09B71F2D5346004EE8F1 /* User.swift in Sources */,
 				C94D09B31F2D3926004EE8F1 /* PicViewController.swift in Sources */,
+				C94D09BD1F2DF080004EE8F1 /* SnapViewController.swift in Sources */,
+				C94D09BB1F2DE7D6004EE8F1 /* Snap.swift in Sources */,
 				C94D099C1F2CF979004EE8F1 /* AppDelegate.swift in Sources */,
 				C94D09B11F2D3462004EE8F1 /* SnapsViewController.swift in Sources */,
 			);
