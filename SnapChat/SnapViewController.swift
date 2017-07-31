@@ -9,6 +9,9 @@
 import UIKit
 
 import SDWebImage
+import Firebase
+import FirebaseAuth
+import FirebaseDatabase
 
 class SnapViewController: UIViewController {
     
@@ -29,6 +32,10 @@ class SnapViewController: UIViewController {
         img.sd_setImage(with: x)
     }
 
+    override func viewDidDisappear(_ animated: Bool) {
+        print("gone")
+        FIRDatabase.database().reference().child("users").child((FIRAuth.auth()?.currentUser?.uid)!).child("snaps").child(snap.key).removeValue()
+    }
     
 
 }

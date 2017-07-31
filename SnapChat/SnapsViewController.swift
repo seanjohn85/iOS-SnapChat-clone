@@ -38,6 +38,26 @@ class SnapsViewController: UIViewController,UITableViewDelegate, UITableViewData
             print("snapshot2\(s.from)")
             print("snapshot2\(s.des)")
             print("snapshot2\(s.imageUrl)")
+            s.key = snapshot.key
+            
+            self.snaps.append(s)
+            
+            self.table.reloadData()
+        })
+        
+        // listens for removed snaps
+        FIRDatabase.database().reference().child("users").child(FIRAuth.auth()!.currentUser!.uid).child("snaps").observe(FIRDataEventType.childRemoved, with: { (snapshot) in
+            let snap = snapshot.value as? [String: AnyObject]
+            print("snapshot2\(snapshot)")
+            
+            let s = Snap()
+            s.from = snap?["from"] as! String
+            s.des = snap?["description"] as! String
+            s.imageUrl = snap?["imageUrl"] as! String
+            print("snapshot2\(s.from)")
+            print("snapshot2\(s.des)")
+            print("snapshot2\(s.imageUrl)")
+            s.key = snapshot.key
             
             self.snaps.append(s)
             
