@@ -11,6 +11,9 @@ import Firebase
 import FirebaseStorage
 
 class PicViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    //image name
+    var uuID = NSUUID().uuidString
 
     //UI outlets
     @IBOutlet var des: UITextField!
@@ -23,6 +26,7 @@ class PicViewController: UIViewController, UIImagePickerControllerDelegate, UINa
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        nextbtn.isEnabled = false
         picker.delegate = self
     }
 
@@ -43,7 +47,7 @@ class PicViewController: UIViewController, UIImagePickerControllerDelegate, UINa
         
         
         let folder =  FIRStorage.storage().reference().child("images")
-        folder.child("\(NSUUID().uuidString).jpg").put(imageData, metadata: nil) { (metaData, error) in
+        folder.child("\(uuID).jpg").put(imageData, metadata: nil) { (metaData, error) in
             //
             if error != nil{
                 print("error upload \(error)")
@@ -56,11 +60,13 @@ class PicViewController: UIViewController, UIImagePickerControllerDelegate, UINa
         
     }
     
+    //pas to next view controller
     override func prepare(for segue: UIStoryboardSegue, sender: Any?){
     
         let nextVC = segue.destination as! UserViewController
         nextVC.imageUrl = sender as! String
         nextVC.descr = des.text!
+        nextVC.UUID = uuID
         
     
     }
@@ -71,6 +77,7 @@ class PicViewController: UIViewController, UIImagePickerControllerDelegate, UINa
         let img = info[UIImagePickerControllerOriginalImage] as! UIImage
         imageView.image = img
         imageView.backgroundColor = UIColor.clear
+        nextbtn.isEnabled = true
         picker.dismiss(animated: true, completion: nil)
     }
 

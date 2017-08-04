@@ -15,6 +15,7 @@ class UserViewController: UIViewController, UITableViewDelegate, UITableViewData
     //snap data passed from previous segue
     var imageUrl = ""
     var descr = ""
+    var UUID = ""
     //used to hold all users
     var users : [User] = []
     
@@ -61,7 +62,7 @@ class UserViewController: UIViewController, UITableViewDelegate, UITableViewData
     //when a user is selected
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let u = users[indexPath.row]
-        let snap = ["from" : FIRAuth.auth()!.currentUser!.email, "description" : descr, "imageUrl" : imageUrl]
+        let snap = ["from" : FIRAuth.auth()!.currentUser!.email, "description" : descr, "imageUrl" : imageUrl, "UUID" : UUID]
         
         FIRDatabase.database().reference().child("users").child(u.uId).child("snaps").childByAutoId().setValue(snap)
         //return to root

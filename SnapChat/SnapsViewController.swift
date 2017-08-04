@@ -10,6 +10,7 @@ import UIKit
 import Firebase
 import FirebaseDatabase
 import FirebaseAuth
+import FirebaseStorage
 
 class SnapsViewController: UIViewController,UITableViewDelegate, UITableViewDataSource {
     
@@ -35,6 +36,7 @@ class SnapsViewController: UIViewController,UITableViewDelegate, UITableViewData
             s.from = snap?["from"] as! String
             s.des = snap?["description"] as! String
             s.imageUrl = snap?["imageUrl"] as! String
+            s.UUID = snap?["UUID"] as! String
             print("snapshot2\(s.from)")
             print("snapshot2\(s.des)")
             print("snapshot2\(s.imageUrl)")
@@ -50,16 +52,16 @@ class SnapsViewController: UIViewController,UITableViewDelegate, UITableViewData
             let snap = snapshot.value as? [String: AnyObject]
             print("snapshot2\(snapshot)")
             
-            let s = Snap()
-            s.from = snap?["from"] as! String
-            s.des = snap?["description"] as! String
-            s.imageUrl = snap?["imageUrl"] as! String
-            print("snapshot2\(s.from)")
-            print("snapshot2\(s.des)")
-            print("snapshot2\(s.imageUrl)")
-            s.key = snapshot.key
-            
-            self.snaps.append(s)
+            //remove the snap from the locally stored array
+            var index  = 0
+            for snap in self.snaps{
+                if snap.key == snapshot.key{
+                    self.snaps.remove(at: index)
+                    break
+                }
+                index += 1
+ 
+            }
             
             self.table.reloadData()
         })
@@ -70,7 +72,12 @@ class SnapsViewController: UIViewController,UITableViewDelegate, UITableViewData
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return snaps.count
+        if snaps.count == 0{
+            return 1
+        }else{
+            return snaps.count
+        }
+        
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -79,7 +86,11 @@ class SnapsViewController: UIViewController,UITableViewDelegate, UITableViewData
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
-        cell.textLabel?.text = snaps[indexPath.row].from
+        if snaps.count == 0{
+            cell.textLabel?.text = "You Have no snaps"
+        }else{
+            cell.textLabel?.text = snaps[indexPath.row].from
+        }
         return cell
     }
     
